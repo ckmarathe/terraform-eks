@@ -18,8 +18,8 @@ module "eks" {
     }
   }
 
-  vpc_id     = "vpc-01ee5bf3d3b8bc510"
-  subnet_ids = ["subnet-0ab2b32de66a9bff1", "subnet-051ec0e4cf35eedd7", "subnet-0cd9e49e5361fa89f"]
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = [ module.vpc.private_subnets ]
 
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
